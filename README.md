@@ -61,3 +61,17 @@ Works with any MCP-compatible client:
 [JARVIS Core](https://github.com/Turbo31150/jarvis-core) · [TradeOracle](https://github.com/Turbo31150/TradeOracle) · [WhisperFlow](https://github.com/Turbo31150/jarvis-whisper-flow)
 
 **Franck Delmas** — [Portfolio](https://turbo31150.github.io/franckdelmas.dev/) · [LinkedIn](https://linkedin.com/in/franck-hlb-80bb231b1)
+
+
+---
+
+## License
+
+MIT License — Free for personal and commercial use.
+
+## Author
+
+**Franck Delmas** — AI Systems Architect
+- [GitHub](https://github.com/Turbo31150) · [Portfolio](https://turbo31150.github.io/franckdelmas.dev/) · [LinkedIn](https://linkedin.com/in/franck-hlb-80bb231b1) · [Codeur](https://codeur.com/-6666zlkh)
+
+Part of [JARVIS OS](https://github.com/Turbo31150/jarvis-linux) ecosystem.
