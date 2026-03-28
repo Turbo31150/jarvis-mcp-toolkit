@@ -1,66 +1,43 @@
+<div align="center">
+
 # 🔧 JARVIS MCP Toolkit
 
-> Toolkit complet pour orchestrer des agents IA autonomes via Model Context Protocol (MCP)
+[![MCP](https://img.shields.io/badge/MCP-88+_Handlers-blue)](https://modelcontextprotocol.io)
+[![Python](https://img.shields.io/badge/Python-3.12-green?logo=python)](https://python.org)
+[![GPUs](https://img.shields.io/badge/GPUs-6x_NVIDIA-76B900?logo=nvidia)](https://nvidia.com)
 
-## 🎯 Fonctionnalités
+**88+ MCP handlers for autonomous AI agents on a 6-GPU cluster**
 
-**88+ handlers MCP** couvrant l'ensemble de l'écosystème IA :
+</div>
 
-- **Trading IA** : MEXC, analyse multi-timeframe, consensus multi-modèles
-- **LM Studio** : 7 modèles locaux (Qwen3, DeepSeek, Nemotron, GLM4, GPT-OSS...)
-- **Monitoring** : Dashboard temps réel, alertes Telegram, métriques système
-- **GitHub** : Gestion repos, automatisation commits, CI/CD
-- **Browser** : Orchestration multi-onglets, scraping intelligent, dispatch IA
-- **SQL3** : Base de données distribuée sur 3 machines
-- **n8n** : 20+ workflows automatisés
+## Architecture
 
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────┐
-│              JARVIS MCP Hub                      │
-│                                                  │
-│  Machine1 (Master) ↔ Machine2 (Worker)          │
-│     2x GPU              2x GPU                   │
-│            ↕                ↕                     │
-│        Machine3 (Orchestrator)                   │
-│            2x GPU                                │
-│                                                  │
-│  ┌──────────────────────────────────────────┐   │
-│  │         88+ MCP Handlers                  │   │
-│  │  Trading | LM Studio | Browser | SQL3    │   │
-│  │  GitHub  | Telegram  | n8n     | FS      │   │
-│  └──────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────┘
+```mermaid
+graph LR
+    Agent[AI Agent] --> MCP{MCP Protocol}
+    MCP --> DB[Database 15]
+    MCP --> FS[Filesystem 12]
+    MCP --> API[API Bridge 18]
+    MCP --> GPU[GPU Mgmt 8]
+    MCP --> Voice[Voice 10]
+    MCP --> Trade[Trading 12]
+    MCP --> Browser[Browser 8]
+    MCP --> System[Monitor 5]
 ```
 
-## 📊 Consensus Multi-IA
+## Handler Categories
 
-Le toolkit intègre un système de **consensus pondéré** entre 5 IA :
+| Category | Count | Examples |
+|----------|-------|---------|
+| Database | 15 | SQLite CRUD, search, analytics |
+| Filesystem | 12 | Read, write, watch, backup |
+| API | 18 | REST, WebSocket, MCP bridge |
+| GPU | 8 | VRAM, thermal, model loading |
+| Voice | 10 | STT, TTS, Whisper commands |
+| Trading | 12 | MEXC, signals, consensus |
+| Browser | 8 | CDP, screenshots, scraping |
+| System | 5 | Health, monitoring, alerts |
 
-| Worker | Poids | Rôle |
-|--------|-------|------|
-| IA1 (Qwen3) | 1.3 | Analyse approfondie |
-| IA2 (DeepSeek) | 1.0 | Réponse rapide |
-| IA3 (Nemotron) | 0.8 | Validation croisée |
-| IA4 (GLM4) | 0.6 | Documentation |
-| IA5 (GPT-OSS) | 0.5 | Contrôle qualité |
+## Part of [JARVIS OS](https://github.com/Turbo31150/jarvis-linux)
 
-## 🚀 Quick Start
-
-```bash
-npm install jarvis-mcp-toolkit
-cp .env.example .env
-node server.js
-```
-
-## 👤 Auteur
-
-**Franck Delmas** — Architecte IA & Automatisation
-- 🌐 [franckdelmas.dev](https://franckdelmas.dev)
-- 💼 [LinkedIn](https://linkedin.com/in/franck-hlb-80bb231b1)
-- 🛠️ Freelance IA pour TPE/PME — 55€/h
-
-## 📄 License
-
-MIT
+[TradeOracle](https://github.com/Turbo31150/TradeOracle) · [WhisperFlow](https://github.com/Turbo31150/jarvis-whisper-flow) · [LUMEN](https://github.com/Turbo31150/lumen)
