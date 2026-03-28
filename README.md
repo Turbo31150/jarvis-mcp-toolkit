@@ -103,6 +103,103 @@ agent.call_tool("gpu_status", {})
 
 Most MCP toolkits offer 5-10 tools. JARVIS needs **comprehensive coverage** because it manages an entire infrastructure: databases, GPU cluster, voice pipeline, trading engine, browser automation, and monitoring — all accessible through a single protocol.
 
+
+## How MCP Works in JARVIS
+
+```mermaid
+sequenceDiagram
+    participant Agent as AI Agent
+    participant MCP as MCP Server
+    participant Handler as Handler (88+)
+    participant System as System Resource
+    
+    Agent->>MCP: call_tool("db_query", {sql: "SELECT..."})
+    MCP->>Handler: Route to database handler
+    Handler->>System: Execute SQL query
+    System-->>Handler: Results
+    Handler-->>MCP: Formatted response
+    MCP-->>Agent: Tool result
+```
+
+## Real Integration Examples
+
+### With Claude Code
+```json
+// .mcp.json
+{
+  "mcpServers": {
+    "jarvis": {
+      "command": "python3",
+      "args": ["-m", "jarvis_mcp", "--port", "8901"]
+    }
+  }
+}
+// Now Claude Code can: query DBs, control browser, check GPU, run scripts
+```
+
+### With Gemini CLI
+```json
+// ~/.gemini/settings.json
+{
+  "mcpServers": {
+    "jarvis-mcp": {
+      "command": "python3",
+      "args": ["-m", "jarvis_mcp"],
+      "timeout": 30000
+    }
+  }
+}
+```
+
+### With Custom Python Agent
+```python
+from jarvis_mcp import MCPClient
+
+client = MCPClient("http://localhost:8901")
+
+# List all available tools
+tools = client.list_tools()
+# → 88 tools: db_query, browser_navigate, gpu_status, voice_command, ...
+
+# Call any tool
+result = client.call("gpu_status")
+# → {gpu0: {temp: 52, vram: "9.6/12GB"}, gpu1: ...}
+
+# Chain tools
+data = client.call("db_query", {"sql": "SELECT * FROM codeur_offers"})
+client.call("telegram_send", {"message": f"Found {len(data)} offers"})
+```
+
+## Handler Deep Dive
+
+### Database Handlers (15)
+```
+db_query       — Execute read-only SQL
+db_insert      — Insert with validation
+db_tables      — List all tables
+db_schema      — Get table schema
+db_export      — Export to JSON/CSV
+db_health      — Check integrity
+db_backup      — Create backup copy
+db_search      — Full-text search
+db_stats       — Row counts, sizes
+db_migrate     — Schema migration
+...
+```
+
+### GPU Handlers (8)
+```
+gpu_status     — Temperature, VRAM, utilization
+gpu_models     — List loaded models
+gpu_load       — Load a model
+gpu_unload     — Free VRAM
+gpu_benchmark  — Speed test
+gpu_thermal    — Thermal throttle check
+gpu_allocate   — Reserve VRAM for task
+gpu_optimize   — Suggest optimal allocation
+```
+
+
 ---
 
 ## License
