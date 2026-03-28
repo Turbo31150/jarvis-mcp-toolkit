@@ -63,6 +63,46 @@ Works with any MCP-compatible client:
 **Franck Delmas** — [Portfolio](https://turbo31150.github.io/franckdelmas.dev/) · [LinkedIn](https://linkedin.com/in/franck-hlb-80bb231b1)
 
 
+
+
+## What is MCP?
+
+**Model Context Protocol** is a standard for AI agents to interact with external tools. Instead of coding custom integrations for each tool, MCP provides a unified interface — like USB for AI.
+
+JARVIS MCP Toolkit provides **88+ ready-to-use handlers** that let any AI agent:
+- Read/write databases
+- Control the browser
+- Manage GPU resources
+- Execute voice commands
+- Monitor system health
+- Trade on MEXC
+
+## Usage Examples
+
+```python
+# Example 1: AI agent uses database tool
+agent.call_tool("db_query", {
+    "database": "jarvis-master",
+    "sql": "SELECT * FROM codeur_offers"
+})
+# → Returns 6 offers
+
+# Example 2: AI agent controls browser
+agent.call_tool("browser_navigate", {
+    "url": "https://codeur.com/projects"
+})
+agent.call_tool("browser_screenshot", {})
+# → Returns screenshot of the page
+
+# Example 3: AI agent checks GPU
+agent.call_tool("gpu_status", {})
+# → {gpu0: {temp: 52, vram: 9.6/12GB}, ...}
+```
+
+## Why 88 Handlers?
+
+Most MCP toolkits offer 5-10 tools. JARVIS needs **comprehensive coverage** because it manages an entire infrastructure: databases, GPU cluster, voice pipeline, trading engine, browser automation, and monitoring — all accessible through a single protocol.
+
 ---
 
 ## License
