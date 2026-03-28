@@ -2,9 +2,9 @@
 
 # 🔧 JARVIS MCP Toolkit
 
-[![MCP](https://img.shields.io/badge/MCP-88+_Handlers-blue)](https://modelcontextprotocol.io)
-[![Python](https://img.shields.io/badge/Python-3.12-green?logo=python)](https://python.org)
-[![GPUs](https://img.shields.io/badge/GPUs-6x_NVIDIA-76B900?logo=nvidia)](https://nvidia.com)
+[![MCP](https://img.shields.io/badge/MCP-88+_Handlers-blue?style=for-the-badge)](https://modelcontextprotocol.io)
+[![Python](https://img.shields.io/badge/Python-3.12-green?style=for-the-badge&logo=python)](https://python.org)
+[![GPUs](https://img.shields.io/badge/GPUs-6x_NVIDIA-76B900?style=for-the-badge&logo=nvidia)](https://nvidia.com)
 
 **88+ MCP handlers for autonomous AI agents on a 6-GPU cluster**
 
@@ -25,19 +25,39 @@ graph LR
     MCP --> System[Monitor 5]
 ```
 
-## Handler Categories
+## 88 Handlers by Category
 
-| Category | Count | Examples |
-|----------|-------|---------|
-| Database | 15 | SQLite CRUD, search, analytics |
-| Filesystem | 12 | Read, write, watch, backup |
-| API | 18 | REST, WebSocket, MCP bridge |
-| GPU | 8 | VRAM, thermal, model loading |
-| Voice | 10 | STT, TTS, Whisper commands |
-| Trading | 12 | MEXC, signals, consensus |
-| Browser | 8 | CDP, screenshots, scraping |
-| System | 5 | Health, monitoring, alerts |
+| Category | Count | Key Operations |
+|----------|-------|----------------|
+| **Database** | 15 | CRUD, search, analytics, backup, migration |
+| **Filesystem** | 12 | Read, write, watch, tree, backup, sync |
+| **API Bridge** | 18 | REST proxy, WebSocket, MCP relay, auth |
+| **GPU Management** | 8 | VRAM, thermal, model load/unload, benchmark |
+| **Voice** | 10 | STT (Whisper), TTS, commands, wake word |
+| **Trading** | 12 | MEXC, signals, consensus, TP/SL, portfolio |
+| **Browser** | 8 | CDP navigate, click, fill, screenshot, scrape |
+| **System** | 5 | Health, logs, alerts, metrics, restart |
+
+## Quick Start
+
+```python
+from jarvis_mcp import MCPServer
+
+server = MCPServer(handlers="all")
+server.start(port=8901)
+# 88 tools now available via MCP protocol
+```
+
+## Integration
+
+Works with any MCP-compatible client:
+- **Claude Code** — via `.mcp.json`
+- **Gemini CLI** — via `settings.json`
+- **BrowserOS** — native MCP support
+- **Custom agents** — via `core.router.dispatcher`
 
 ## Part of [JARVIS OS](https://github.com/Turbo31150/jarvis-linux)
 
-[TradeOracle](https://github.com/Turbo31150/TradeOracle) · [WhisperFlow](https://github.com/Turbo31150/jarvis-whisper-flow) · [LUMEN](https://github.com/Turbo31150/lumen)
+[JARVIS Core](https://github.com/Turbo31150/jarvis-core) · [TradeOracle](https://github.com/Turbo31150/TradeOracle) · [WhisperFlow](https://github.com/Turbo31150/jarvis-whisper-flow)
+
+**Franck Delmas** — [Portfolio](https://turbo31150.github.io/franckdelmas.dev/) · [LinkedIn](https://linkedin.com/in/franck-hlb-80bb231b1)
