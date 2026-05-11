@@ -2,6 +2,8 @@
 
 # 🔧 JARVIS MCP Toolkit
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [![MCP](https://img.shields.io/badge/MCP-88+_Handlers-blue?style=for-the-badge)](https://modelcontextprotocol.io)
 [![Python](https://img.shields.io/badge/Python-3.12-green?style=for-the-badge&logo=python)](https://python.org)
 [![GPUs](https://img.shields.io/badge/GPUs-6x_NVIDIA-76B900?style=for-the-badge&logo=nvidia)](https://nvidia.com)
